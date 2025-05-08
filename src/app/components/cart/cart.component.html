@@ -1,0 +1,40 @@
+<ng-container *ngIf="products.length !=0">
+  <div class="cart-container">
+    <div class="cart-item" *ngFor="let item of products; let i = index">
+
+
+        <img class="item-image" src="{{item.image}}" alt="{{item.title}}">
+        <div class="item-details">
+          <a routerLink="/products/{{item.id}}" >
+          <div class="item-name">{{item.title}}</div>
+          </a>
+          <div class="item-price">${{item.price}}</div>
+          <div class="item-quantity">Quantity: {{item.quantity}} </div>
+        </div>
+        <div class="quantity-controls">
+          <button [disabled]="item.quantity<=1" (click)="updateCart(item,'-')" class="btn">-</button>
+          <input type="text" [value]="item.quantity" readonly />
+          <button (click)="updateCart(item,'+')" class="btn">+</button>
+        </div>
+        <button class="remove-button" (click)="removeItem(item)"><i class="fa fa-times"></i></button>
+
+    </div>
+    <div class="total-price d-flex"><b>Total: ${{grandTotal}}</b></div>
+  </div>
+  <button routerLink="/products" class="btn btn-outline-primary btn-shop">Shop now</button>
+</ng-container>
+
+
+<ng-container *ngIf="products.length ==0">
+  <div class="container">
+    <div class="card">
+      <h5 class="card-title">My Cart</h5>
+    </div>
+    <div class="center">
+      <img src="/assets/fcart.png" alt="">
+      <h4>Cart is empty!</h4>
+      <h6>Add item to it now</h6>
+      <button routerLink="/products" class="btn btn-outline-primary">Shop now</button>
+    </div>
+  </div>
+</ng-container>

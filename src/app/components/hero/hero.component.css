@@ -1,0 +1,40 @@
+.hero {
+  background: linear-gradient(to right, #ff6600, #ff9900);
+  height: 70vh;  /* Adjust the height as per your design */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+
+  .hero-content {
+    background-color: rgba(0, 0, 0, 0.5);  /* Transparent overlay to improve text visibility */
+    padding: 2rem;
+    border-radius: 12px;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    button {
+      background-color: #ff6600;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #e65c00;
+      }
+    }
+  }
+}
